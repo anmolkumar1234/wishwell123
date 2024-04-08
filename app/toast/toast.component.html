@@ -1,0 +1,4 @@
+<div *ngIf="isVisible" [ngClass]="{ 'toast': true, 'success': messageType === 'success', 'error': messageType === 'error' }">
+    <span>{{ message }}</span>
+  </div>
+  
