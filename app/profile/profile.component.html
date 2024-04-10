@@ -252,4 +252,33 @@
     </div>
   </div>
 </div>
+
+
+.campaign-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust gap between cards */
+}
+
+.campaign-card {
+  flex: 1 1 300px;
+  width: 400px;
+  background-color: #e2ffff;
+    border: 1px solid #e0e0e0; /* Adding border */
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.457); /* Added shadow for depth */
+
+}
+
+
+ toggleDescription(campaign: any) {
+    campaign.showFullDescription = !campaign.showFullDescription;
+}
+
+
+
+
+
   
