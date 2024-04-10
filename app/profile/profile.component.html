@@ -239,12 +239,13 @@
         
         
           
-            <button *ngIf="campaign.status === 'active'" (click)="deactivateCampaign(campaign.id)">Deactivate</button>
-            <button *ngIf="campaign.status === 'inactive'" (click)="activateCampaign(campaign.id)">Active</button>
-            <button *ngIf="campaign.status === 'pending'">Pending State</button>
+            <button *ngIf="campaign.status === 'active'" (click)="deactivateCampaign(campaign.id)" style="color: white; font-weight: bold;">Deactivate</button>
+            <button *ngIf="campaign.status === 'inactive'" (click)="activateCampaign(campaign.id)"  style="color: white; font-weight: bold;">Active</button>
+            <button *ngIf="campaign.status === 'pending'"  style="color: white; font-weight: bold;">Pending State</button>
 
 
-            <button (click)="deleteCampaign(campaign.id)">Delete</button> 
+            <button (click)="deleteCampaign(campaign.id)" style="color: white; font-weight: bold;">Delete</button> 
+
           </div>
         </div>
       </div>
