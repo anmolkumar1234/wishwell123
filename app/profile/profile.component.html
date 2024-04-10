@@ -205,7 +205,7 @@
           </form>
         </div>
       
-     <div class="ofhidden" *ngSwitchCase="'myCampaigns'">
+      <div class="ofhidden" *ngSwitchCase="'myCampaigns'">
         <h2>My Campaigns</h2>
         <div class="campaign-cards">
           <!-- Campaign cards will be rendered here -->
@@ -245,7 +245,6 @@
 
 
             <button (click)="deleteCampaign(campaign.id)" style="color: white; font-weight: bold;">Delete</button> 
-
           </div>
         </div>
       </div>
@@ -253,9 +252,4 @@
     </div>
   </div>
 </div>
-
-
-  toggleDescription(campaign: any) {
-    campaign.showFullDescription = !campaign.showFullDescription;
-}
   
