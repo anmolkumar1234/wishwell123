@@ -205,15 +205,25 @@
           </form>
         </div>
       
-      <div class="ofhidden" *ngSwitchCase="'myCampaigns'">
+     <div class="ofhidden" *ngSwitchCase="'myCampaigns'">
         <h2>My Campaigns</h2>
         <div class="campaign-cards">
           <!-- Campaign cards will be rendered here -->
           <div class="campaign-card" *ngFor="let campaign of userCampaigns">
-            <h3 style="color: #19b6b6; font-size: 23px;">{{ campaign.title }}</h3>
-            <p class="desctext" style="font-size: 18px; padding: 5px;">
-                <strong>Description:</strong> {{ campaign.description }}
-            </p><br>
+            <h3 style="color: #00c5c5; font-size: 23px;">{{ campaign.title }}</h3>
+            <div *ngIf="!campaign.showFullDescription">
+                <p class="desctext" style="font-size: 18px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; padding: 5px;">
+                    <strong>Description:</strong> {{ campaign.description | slice:0:100 }} <span *ngIf="campaign.description.length > 100">...</span>
+                </p>
+                <a (click)="toggleDescription(campaign)">See More</a>
+            </div>
+            <div *ngIf="campaign.showFullDescription">
+                <p class="desctext" style="font-size: 18px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; padding: 5px;">
+                    <strong>Description:</strong> {{ campaign.description }}
+                </p>
+                <a (click)="toggleDescription(campaign)">See Less</a>
+            </div>
+            <br>
             <p style="padding: 3px;"><strong>Goal Amount:</strong> {{ campaign.goal_amount }}</p>
             <p style="padding: 3px;"><strong>Start Date:</strong> {{ campaign.start_date }}</p>
             <p style="padding: 3px;"><strong>End Date:</strong> {{ campaign.end_date }}</p>
@@ -226,6 +236,8 @@
             <p style="padding: 3px;"><strong>Created At:</strong> {{ campaign.created_at }}</p>
             <p style="padding: 3px;"><strong>Updated At:</strong> {{ campaign.updated_at }}</p>
             <!-- Edit and Delete buttons -->
+        
+        
           
             <button *ngIf="campaign.status === 'active'" (click)="deactivateCampaign(campaign.id)">Deactivate</button>
             <button *ngIf="campaign.status === 'inactive'" (click)="activateCampaign(campaign.id)">Active</button>
